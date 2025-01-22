@@ -52,7 +52,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.github.Shibler0"
-                artifactId = "TransitionLayer"
+                artifactId = "DiagonalTransition"
                 version = "0.9-alpha"
             }
         }
