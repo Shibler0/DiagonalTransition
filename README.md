@@ -25,7 +25,13 @@ var isMooving by remember {
         mutableStateOf(false)
     }
 
-    GraphicTransition(isMooving)//use this as a background
+    val direction = Direction.DIRECTION_TOPRIGHT //choose where you want the screen to moove on
+    val shapes = Shapes.CIRCLE //choose the pattern you want to draw
+
+    DiagonalTransition(moove = isMooving,
+        shape = shapes,
+        direction = direction
+    )
 
     Box(
         modifier = Modifier
@@ -34,15 +40,17 @@ var isMooving by remember {
         contentAlignment = Alignment.Center
     ) {
         ElevatedButton(onClick = { isMooving = !isMooving },
- modifier = Modifier
-            .newOffset(isMooving,isCurrentContent = true)//use newOffset as a modifier and set it to true on your components that needs to be attach to the coordinate
-) {
-            Text(text = "Hello this side")
+            modifier = Modifier.newOffset(
+            isMooving,isCurrentContent = true,
+            direction = direction))
+        {
+            Text(text = "Hello from this side")
         }
-        ElevatedButton(onClick = { isMooving = !isMooving },
- modifier = Modifier
-            .newOffset(isMooving,isCurrentContent = false) //use newOffset as a modifier and set it to false on your components that needs to be attach to the coordinate outside of the screen
-) {
+        ElevatedButton(onClick = { isMooving = !isMooving }
+            , modifier = Modifier.newOffset(
+                isMooving,isCurrentContent = false,
+                direction = direction))
+        {
             Text(text = "Hello from the other side")
         }
     }
