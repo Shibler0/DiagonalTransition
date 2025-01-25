@@ -2,6 +2,12 @@
 
 Get an original way of transition between your activity on Compose
 
+## Preview
+
+<p align="center">
+<img src="preview/preview.gif" width="270"/>
+</p>
+
 ## Implementation
 
 Add this to your build gradle files
