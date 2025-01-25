@@ -164,8 +164,8 @@ fun DrawScope.drawPattern(offsetX: Float, offsetY: Float, space: Dp, shape: Int 
 
     val spaceBetween = space.toPx()
 
-    for(x in 0 until size.width.toInt() * 2 step spaceBetween.toInt()) {
-        for(y in - spaceBetween.toInt() until size.height.toInt() * 2 + spaceBetween.toInt() * 2 step  spaceBetween.toInt()) {
+    for(x in - size.width.toInt() * 2 until size.width.toInt() * 2 + spaceBetween.toInt() * 2 step spaceBetween.toInt()) {
+        for(y in - size.height.toInt() * 2 until size.height.toInt() * 2 + spaceBetween.toInt() * 2 step  spaceBetween.toInt()) {
 
             val animateOffsetX = x + offsetX
             val animateOffsetY = y + offsetY
